@@ -39,6 +39,7 @@ export class PolarisChip extends LitElement {
     // "css" called here is actually a function exported from Lit at the top
     // so that it scopes the CSS nicely and also applies sanitization
     return css`
+    
     /*
       :host is a special selector meaning "the tag itself"
       Think of if we were looking at how a <strong> tag is made. It would have
@@ -50,13 +51,13 @@ export class PolarisChip extends LitElement {
       }
 
       span {
-        background-color: orange;
+        background-color: yellow;
         color: black;
         font-size: 24px;
         padding: 16px;
         margin: 8px;
       }
-
+      span:focus-within
       span:hover {
         background-color: grey;
         border: 1px solid black;
@@ -83,7 +84,11 @@ export class PolarisChip extends LitElement {
     // it is going to print the title of the element. The magic of Lit is that
     // when title is changed (even by inspecting the document and hacking the value)
     // it will automatically update what is displayed and do so incredibly quickly
-    return html`<span>${this.title}</span>`;
+    return html`<span>
+      <a href="${this.link}">
+      ${this.title}
+      </a>
+      </span>`;
   }
 
   // LitElement uses the properties call to do the following:
