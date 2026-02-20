@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import "@haxtheweb/meme-maker/meme-maker.js";
 
 /**
  * Now it's your turn. Here's what we need to try and do:
@@ -15,7 +16,7 @@ export class MyCard extends LitElement {
   constructor() {
     super();
     this.title = "Flower Card";
-    this.image = ""
+    this.image = "https://picsum.photos/600/400"
     this.description = ""
     this.link = ""
     this.body = ""
@@ -65,7 +66,11 @@ export class MyCard extends LitElement {
   render() {
     return html`
   <div class="card">
-    <img class="card-image" description="${this.description}" src="${this.image}"/>
+    <meme-maker
+  image-url="${this.image}"
+  top-text="${this.title}"
+  bottom-text="${this.description}"
+  ></meme-maker>
       <div class="card-text">
         <div class="card-title">${this.title}</div>
       <div class = "card-details">
